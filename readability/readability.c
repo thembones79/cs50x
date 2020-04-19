@@ -55,8 +55,8 @@ float coleman_liau_index(string text)
     int words = count_words(text);
     int sentences = count_sentences(text);
 
-    float L = 100 * (float) letters / (float) words;
-    float S = 100 * (float) sentences / (float) words;
+    float L = 100 * (float)letters / (float)words;
+    float S = 100 * (float)sentences / (float)words;
 
     return 0.0588 * L - 0.296 * S - 15.8;
 }
@@ -74,7 +74,7 @@ void get_grade(string text)
     }
     else
     {
-        int grade = (int) roundf(index);
+        int grade = (int)roundf(index);
         printf("Grade %i\n", grade);
     }
 }

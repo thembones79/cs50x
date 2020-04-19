@@ -16,8 +16,7 @@ long getPositiveLong(string promptText)
     do
     {
         positive = get_long("%s", promptText);
-    }
-    while (positive < 0);
+    } while (positive < 0);
     return positive;
 }
 
@@ -41,7 +40,7 @@ int sumOfEvenDigitsMultipliedBy2(long cardNumber)
                 doubleReminder = doubleReminder - 9;
             }
             sumOfDoubleEvens = sumOfDoubleEvens + doubleReminder;
-        }   
+        }
     }
 
     return sumOfDoubleEvens;
@@ -52,7 +51,7 @@ int sumOfOddDigits(long cardNumber)
     int counter = 0;
     int reminder = 0;
     int sumOfOdds = 0;
- 
+
     while (cardNumber > 0)
     {
         reminder = cardNumber % 10;
@@ -61,7 +60,7 @@ int sumOfOddDigits(long cardNumber)
         if (counter % 2 != 0)
         {
             sumOfOdds += reminder;
-        }      
+        }
     }
 
     return sumOfOdds;
@@ -130,7 +129,7 @@ string validateCardNumber(long cardNumber)
     {
         return "INVALID\n";
     }
-    
+
     if (isVisa(cardNumber))
     {
         return "VISA\n";
