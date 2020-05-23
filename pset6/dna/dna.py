@@ -1,54 +1,77 @@
 from sys import argv, exit
 import csv
-
-# for i in range(len(argv)):
-#   print(argv[i])
-
-# for arg in argv:
-#   print(arg)
+import re
 
 
-# if len(argv) != 2:
-#   print("missing command-line argument")
-#    exit(1)
+def main():
+    basic_input_validation()
+    dna_database = argv[1]
+    dna_sequence_file = argv[2]
+    list_of_STR = list_of_STRs(dna_database)
+    dna_sequence = textfile_to_string(dna_sequence_file)
+    suspect = create_suspect(list_of_STR, dna_sequence)
+    match = find_suspect_in_dna_base(suspect, dna_database)
+    print(match)
+    exit(0)
 
-print(f"hello, {argv[1]}")
-print(f"hello, {argv[2]}")
 
-# print("hi")
+def basic_input_validation():
+    if len(argv) != 3:
+        print("Usage: python dna.py data.csv sequence.txt")
+        exit(1)
 
 
-counts = {}
+def list_of_STRs(csv_filename):
+    with open(csv_filename, "r") as file:
+        reader = csv.DictReader(file)
+        first_row = file.readline()
+        first_row = first_row.strip()  # removes '\n' at the end of the line
+        str_list = re.split(",", first_row)
+        del str_list[0]  # we want just "STRs" columns (no "name" column)
+        return str_list
 
-with open(argv[1], "r") as file:
-    reader = csv.DictReader(file)
 
-    for row in reader:
-        title = row["name"]
-        if title in counts:
-            counts[title] += 1
+def textfile_to_string(filename):
+    f = open(filename, "r")
+    contents = f.read()
+    f.close()
+    return contents
+
+
+def longest_run_of_consecutive_repeats(sought_str, dna_sequence):
+    # just for more straightforward counting
+    x = re.sub(sought_str, "*", dna_sequence)
+    count = 0
+    list_of_counts = []
+
+    for i in x:
+        if i == "*":
+            count += 1
         else:
-            counts[title] = 1
-
-for title, count in counts.items():
-    print(title, count, sep=" | ")
-
-
-f = open(argv[2], "r")
-contents = f.read()
-
-print(contents)
+            list_of_counts.append(count)
+            count = 0
+    list_of_counts.append(count)
+    return max(list_of_counts)
 
 
-exit(0)
+def find_suspect_in_dna_base(suspect, csv_filename):
+    with open(csv_filename, "r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            count = 0
+            for x in row:
+                if (row[x] == suspect[x]):
+                    count += 1
+            if count == len(suspect)-1:  # we don't count "name" column (first column)
+                return row["name"]
+    return "No match"
 
 
-# read csv
+def create_suspect(list_of_STR, dna_sequence):
+    suspect = {'name': '_suspect'}
+    for i in list_of_STR:
+        suspect[i] = str(longest_run_of_consecutive_repeats(i, dna_sequence))
+    return suspect
 
-# read txt
 
-# count STRs in txt file
-
-# search in csv for STRs counts from txt
-
-# print result
+main()
