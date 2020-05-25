@@ -1,4 +1,3 @@
-
   SELECT title
   FROM movies
   WHERE movies.id IN (
