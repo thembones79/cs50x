@@ -34,13 +34,13 @@ The project was created as the [final project](https://cs50.harvard.edu/x/2020/p
 
 1. Utilize bar-code scanners (in fact, it is not a bar code but [Data Matrix](https://en.wikipedia.org/wiki/Data_Matrix) – it&#39;s 2D code, somewhat similar to QR Code) that the company bought for scanning newly developed stickers that are placed on ready made products (as input data)
 2. Read MS Excel file with production schedule and part number details and retrieve data about `tact times`, `part numbers` and `orders` to work with.
-3. Give an instant feedback about `MCT` (Mean Cucle Time), `LCT` (Last Cycle Time), `Efficiency`, estimated `order duration` and estimated `time of order completion`. (also with colors - GREEN and RED so people can instantly see if they are winning or losing)
+3. Give an instant feedback about `MCT` (Mean Cycle Time), `LCT` (Last Cycle Time), `Efficiency`, estimated `order duration` and estimated `time of order completion`. (also with colors - GREEN and RED so people can instantly see if they are winning or losing)
 4. Give an information about `order`, `customer`, manufactured piece (part number), ordered `quantity`
 5. Give an information about `missing pieces`
 6. Give an information of mixed up pieces (for example the same part number but form another order from same or another client
 7. Give feedback about counting one piece more than once
 8. Give information about how many pieces (of current order) was done on current line and on all the lines and how many pieces are to do
-9. Give ability to have `brakes` during completion the given order
+9. Give ability to have `breaks` during completion the given order
 10. Give ability to `work on more than one line`
 11. Give ability to `start an order on one line and finish it on another`
 12. Give ability to work on `more than one order simultaneously`
