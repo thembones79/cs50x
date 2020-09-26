@@ -24,6 +24,8 @@ The application has to solve some issues that my folks have to tackle on daily b
 
 _For example – sometimes they can find hard to estimate if they have correct manufacturing speed to meet the deadline. (especially when they are manufacturing new or customized product), they use standard timers and excel spreadsheet (or calculator) to do estimations_
 
+#### **[Youtube Video with App Overview](https://www.youtube.com/watch?v=dYJEmjEi4Ms)**
+
 #### [**LEM System**](https://riverdi-lem.netlify.app/) is an internal tool for measuring and monitoring manufacturing/production lines.
 
 The project was created as the [final project](https://cs50.harvard.edu/x/2020/project/) to graduate [Harvard&#39;s CS50](https://cs50.harvard.edu/x/2020/) for benefit of my colleagues at Manufacturing Department of [Unisystem](https://www.unisystem-displays.com/en/) and [Riverdi](https://riverdi.com/) (Industrial display and touch screen manufacturer).
